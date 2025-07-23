@@ -12,7 +12,8 @@ const auth = () => {
   //all the three below coming from the react router.
   const location = useLocation();
 
-  const next = location.search.split('next')[1];
+  const params = new URLSearchParams(location.search);
+  const next = params.get('next') || '/';
 
   const navigate = useNavigate();
 
